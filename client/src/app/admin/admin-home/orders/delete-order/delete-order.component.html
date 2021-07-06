@@ -1,0 +1,76 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
+                <span style="font-size: 16px;"><strong>View By: </strong></span>
+                <select class="customSelect" style="font-size: 18px;" (change)="ViewBy($event.target.value)"> 
+                    <option value="All" selected>All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Preparing">Preparing</option>
+                    <option value="OFD">Out For Delivery</option>
+                    <option value="Received">Received</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
+                <table class="table ps-cart__table">
+                    <thead>
+                        <tr class="table-header">
+                            <th>Order Id</th>
+                            <th>Customer Email</th>
+                            <th>Order Date</th>
+                            <th>Order Total</th>
+                            <th>Order Status</th>
+                            <th>View Details</th>
+                            <th>Edit Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-body" *ngFor="let order of orders">
+                            <td>{{order.id}}</td>
+                            <td>{{order.buyerEmail}}</td>
+                            <td>{{order.orderDate}}</td>
+                            <td>{{order.shippingPrice + order.subtotal | currency}}</td>
+                            <td>{{order.status}}</td>
+                            <td><button (click)="openModal(viewOrder)" style="border: 0px;"><a><i class="fa fa-eye"></i> View</a></button></td>
+                            <td><button (click)="openEditModal(editStatus)" style="border: 0px;"><a><i class="fa fa-pencil"></i> Edit</a></button></td>
+                            <ng-template #editStatus class="container">
+                                <div class="modal-header">
+                                    <h4 class="modal-title pull-left" style="text-align: center;">Edit Order Status</h4>
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="modal-body">
+                                    <app-edit-order [id]="order.id"></app-edit-order>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+                                </div>
+                            </ng-template>
+                            <ng-template #viewOrder class="container">
+                                <div class="modal-header">
+                                    <h4 class="modal-title pull-left" style="text-align: center;">View Order Details</h4>
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="modal-body">
+                                    <app-order-detailed [Id]="order.id" [Email]="order.buyerEmail"></app-order-detailed>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+                                </div>
+                            </ng-template>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,132 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-9 mx-auto">
+                <div class="card card-signin my-5" style="border-radius: 10px;">
+                    <form [formGroup]="UpdateProductForm" (ngSubmit)="OnSubmit()" >
+                        <div class="card-header">
+                            <h1 style="text-align: center;">Edit Product</h1>
+                            <h4 style="text-align: center; color:red;">Please make sure that all field with ** are fulfilled</h4> 
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-4 ">
+                                    <label style="color: #686868;">Product Name:</label>
+                                    <input class="customInput" value="{{product?.name}}" placeholder="Product Name**" type="text" formControlName="Name">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label style="color: #686868;">Product Price:</label>
+                                    <input class="customInput" min="1" value="{{product?.price}}"  placeholder="Product Price" formControlName="productPrice" type="number"> 
+                                </div>
+                                <div class="form-group col-4">
+                                    <label style="color: #686868;">Product Discount:</label>
+                                    <input class="customInput"  value="{{product?.productDiscount}}" placeholder="Product Discount" formControlName="productDiscount" type="number" step="0.1" min="0" max="1">
+                                </div>
+                                <div class="form-group col-12">
+                                    <label style="color: #686868;">Product Description:</label>
+                                    <textarea class="col-12"  value="{{product?.description}}" style="resize: none; font-size: 14px;" placeholder="Product Description **" formControlName="Description" rows="5"></textarea>
+
+                                </div>
+                                <div class="form-group col-12">
+                                    <label style="color: #686868;">Product Specifications:</label>
+                                    <textarea class="col-12"  value="{{product?.specifications}}" style="resize: none; font-size: 14px;" placeholder="Product Specification **" formControlName="Specifications" rows="5"></textarea>
+                                    <hr>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 1 **</p>
+                                    <img *ngIf="this.product.pictureUrl && this.prodPic1Name === ''" width="100px" height="100px" src="{{product?.pictureUrl}}">
+                                    <i class="fa fa-check" *ngIf="this.prodPic1Name"></i>
+                                    <input type="file" #fileimg1 placeholder="Choose file" (change)="this.uploadFileimg1(fileimg1.files)" style="display:none;">
+                                    <button type="button" class="btn btn-success" (click)="fileimg1.click()">Upload File</button>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 2</p>
+                                    <img *ngIf="this.product.pictureUrl1 && this.prodPic2Name === ''" width="100px" height="100px" src="{{product?.pictureUrl1}}">
+                                    <i class="fa fa-check" *ngIf="this.prodPic2Name"></i>
+                                    <input type="file" #fileimg2 placeholder="Choose file" (change)="this.uploadFileimg2(fileimg2.files)"  style="display:none;">
+                                    <button *ngIf="!this.product.pictureUrl1" type="button" class="btn btn-success" (click)="fileimg2.click()">Upload File</button>
+                                    <button *ngIf="this.product.pictureUrl1" type="button" class="btn btn-danger" (click)="removeImg1()">Remove File</button>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 3</p>
+                                    <img *ngIf="this.product.pictureUrl2 && this.prodPic3Name === ''" width="100px" height="100px" src="{{product?.pictureUrl2}}">
+                                    <i class="fa fa-check" *ngIf="this.prodPic3Name"></i>
+                                    <input type="file" #fileimg3 placeholder="Choose file" (change)="this.uploadFileimg3(fileimg3.files)"  style="display:none;">
+                                    <button *ngIf="!this.product.pictureUrl2" type="button" class="btn btn-success" (click)="fileimg3.click()">Upload File</button>
+                                    <button *ngIf="this.product.pictureUrl2" type="button" class="btn btn-danger" (click)="removeImg2()">Remove File</button>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 4</p>
+                                    <img *ngIf="this.product.pictureUrl3" width="100px" height="100px" src="{{product?.pictureUrl3}}">
+                                    <i class="fa fa-check" *ngIf="this.prodPic4Name"></i>
+                                    <input type="file" #fileimg4 placeholder="Choose file" (change)="this.uploadFileimg4(fileimg4.files)" style="display:none;">
+                                    <button *ngIf="!this.product.pictureUrl3" type="button" class="btn btn-success" (click)="fileimg4.click()">Upload File</button>
+                                    <button *ngIf="this.product.pictureUrl3" type="button" class="btn btn-danger" (click)="removeImg3()">Remove File</button>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 5</p>
+                                    <img *ngIf="this.product.pictureUrl4" value="product?.pictureUrl4" width="100px" height="100px" src="{{product?.pictureUrl4}}">
+                                    <i class="fa fa-check" *ngIf="this.prodPic5Name"></i>
+                                    <input type="file" #fileimg5 placeholder="Choose file" (change)="this.uploadFileimg5(fileimg5.files)"  style="display:none;">
+                                    <button *ngIf="!this.product.pictureUrl4" type="button" class="btn btn-success" (click)="fileimg5.click()">Upload File</button>
+                                    <button *ngIf="this.product.pictureUrl4" type="button" class="btn btn-danger" (click)="removeImg4()">Remove File</button>
+                                </div>
+                                <div class="form-group col-12">
+                                    <hr>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product 3D File</p>
+                                    <i class="fa fa-check" *ngIf="this.prod3dName"></i>
+                                    <input type="file" #file3dprod placeholder="Choose file" (change)="this.uploadFile3d(file3dprod.files)" style="display:none;">
+                                    <button *ngIf="!this.product.product3dUrl" type="button" class="btn btn-success" (click)="file3dprod.click()">Upload File</button>
+                                    <button *ngIf="this.product.product3dUrl" type="button" class="btn btn-danger" (click)="removeProd3dModel()">Remove File</button>
+                                </div>
+                                <div class="form-group col-12"> 
+                                    <hr>
+                                </div>
+                                <div vlass="form-group col-12">
+                                    <p style="color: red;">Selection not required if there are no changes</p>
+                                </div>
+                                <div class="form-group col-12 row">
+                                    <p class="form-group col-2 mt-2">Product Brand: <strong>{{this.product.productBrand}}</strong></p>
+                                    <select formControlName="productBrandId" class="col-3" style="font-size: 14px; height: 100%;" required>
+                                        <option disabled>Select Product Brand</option>
+                                        <option *ngFor="let brand of brands" [ngValue]="brand.id">{{brand.name}}</option> 
+                                    </select>
+                                    <p class="form-group col-2 ml-4 mt-2">Product Type: <strong>{{this.product.productType}}</strong></p>
+                                    <select formControlName="productTypeId" class="col-3" style="font-size: 14px; height: 100%;" required>
+                                        <option disabled>Select Product Type</option>
+                                        <option *ngFor="let type of productType" [ngValue]="type.id">{{type.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-12 row">
+                                    <p class="form-group col-2 mt-2">Product Color: <strong>{{this.product.productColor}}</strong></p>
+                                    <select formControlName="productColorId" class="col-3" style="font-size: 14px; height: 100%;" required>
+                                        <option disabled>Select Product Color</option>
+                                        <option *ngFor="let color of colors" [ngValue]="color.id">{{color.name}}</option>
+                                    </select>
+                                    <p class="form-group col-3 ml-4 mt-2">Product Categories: <strong>{{this.product.productCategory}}</strong> </p>
+                                    <select formControlName="productCategoryId" class="col-3" style="font-size: 14px; height: 100%;" required>
+                                        <option disabled>Select Product Categories</option>
+                                        <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+                                    </select>   
+                                </div>
+                                <div class="form-group col-12">
+                                    <hr>
+                                </div>
+                                <div class="form-group col-12">
+                                    <button [disabled]="this.UpdateProductForm.get('productName').value === '' || this.UpdateProductForm.get('productPrice').value === null || this.UpdateProductForm.get('productPrice').value === 0 || this.UpdateProductForm.get('productDiscount').invalid && this.Upload" type="submit" class="btn btn-primary col-12"  style="background-color: #2ac37d; border: 0px;">
+                                        Update Product! <i class="fa fa-angle-right"></i>
+                                    </button>
+                                </div>
+                                <div *ngIf="this.updated" class="form-group col-12">
+                                    <h4 style="text-align: center; color: green;"><i class="fa fa-check"></i>Successfully Updated Product! </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div>
+</main>

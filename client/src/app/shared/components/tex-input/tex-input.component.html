@@ -1,0 +1,25 @@
+<div class="form-label-group">
+    <input 
+        [ngClass]="(controlDir && controlDir.control && controlDir.control.touched) ? !controlDir.control.valid ? 'is-invalid' : 'is-valid' : null"
+        [type]="type"
+        (input)="onChange($event.target.value)"
+        (blur)="onTouched()"
+        id="{{label}}"  
+        #input
+        class="form-control" 
+    >
+    <div *ngIf="controlDir && controlDir.control && controlDir.control.status === 'PENDING'" class="fa fa-spinner fa-spin loader"></div>
+     <label for="{{label}}">{{label}}</label> 
+    <div class="invalid-feedback" *ngIf="(controlDir && controlDir.control && !controlDir.control.valid && controlDir.control.touched)">
+    <span *ngIf="!!controlDir.control.errors?.required">{{label}} is required!</span>
+    <span *ngIf="!!controlDir.control.errors?.pattern  && (label === 'Email')">Invalid email address!</span>
+    <span *ngIf="!!controlDir.control.errors?.pattern  && (label === 'Password')">Invalid Password! Password must include at least:<br/> - 1 UpperCase<br/> - 1 Lowercase<br/> - 1 Number<br/> - 1 Character<br/> - Min 4 - Max 8 Characters<br/></span>
+    <span *ngIf="!!controlDir.control.errors?.pattern && (label === 'Phone Number 1' || label === 'Phone Number 2')">Invalid {{label}}. Please make sure you add country code - '+20' </span>
+
+    </div>
+
+    <div class="invalid-feedback d-block" *ngIf="(controlDir && controlDir.control && !controlDir.control.valid && controlDir.control.dirty)">
+        <span *ngIf="!!controlDir.control.errors?.emailExists">Email address exists!</span>
+        <span *ngIf="!!controlDir.control.errors?.userNameExists">UserName exists!</span>
+    </div>
+  </div>

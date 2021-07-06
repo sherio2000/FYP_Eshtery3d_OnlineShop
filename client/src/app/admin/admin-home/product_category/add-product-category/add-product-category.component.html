@@ -1,0 +1,28 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-9 mx-auto">
+                <div class="card card-signin my-5" style="border-radius: 10px;">
+                    <form [formGroup]="AddProductCatForm" (ngSubmit)="OnSubmit()" > 
+                        <div class="card-header">
+                            <h1 style="text-align: center;">Add Product Category</h1>
+                            <h4 style="text-align: center; color:red;">Please make sure that all field with ** are fulfilled</h4> 
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-12 ">
+                                    <input class="customInput"  placeholder="Product Category Name**" type="text" formControlName="Name">
+                                </div>
+                                <div class="form-group col-12">
+                                    <button [disabled]="this.AddProductCatForm.get('Name').invalid" type="submit" class="btn btn-primary col-12"  style="background-color: #2ac37d; border: 0px;">
+                                        Add Category! <i class="fa fa-angle-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

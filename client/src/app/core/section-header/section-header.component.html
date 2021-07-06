@@ -1,0 +1,14 @@
+<div *ngIf="(breadcrumb$ | async) as breadcrumbs">
+    <section *ngIf="breadcrumbs.length > 0 && breadcrumbs[breadcrumbs.length-1].label !== 'Home'" class="py-4" style="margin-top: 90px;">
+        <!-- Navbar -->
+        <div class="navbar navbar-light" style="height: 10px;">
+
+        <!-- Breadcrumbs -->
+            <xng-breadcrumb ></xng-breadcrumb>
+        <!-- Breadcrumbs -->
+    
+        </div>
+        <!-- Navbar -->
+    </section>
+</div>
+

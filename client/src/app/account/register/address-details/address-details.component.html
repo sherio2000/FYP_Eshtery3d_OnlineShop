@@ -1,0 +1,27 @@
+<div class="card-body" [formGroup]="registerForm">
+    <div class="row" formGroupName="UserAddressForm">
+        <div class="form-group col-6">
+            <app-text-input [label]="'Country'" formControlName="Country"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'City'" formControlName="City"></app-text-input>
+        </div>  
+        <div class="form-group col-12">
+            <app-text-input [label]="'Address 1'" formControlName="Address1"></app-text-input>
+        </div> 
+        <div class="form-group col-12">
+            <app-text-input [label]="'Address 2 - Optional'" formControlName="Address2"></app-text-input>
+        </div> 
+        <div class="form-group col-12">
+            <app-text-input [label]="'Street Name'" formControlName="StreetName"></app-text-input>
+        </div> 
+        <div class="form-group col-12">
+            <button [disabled]="registerForm.get('UserAddressForm').invalid" class="btn btn-primary col-12" style="background-color: #2ac37d; border: 0px;" cdkStepperNext>
+                Go to Measurements form  <i class="fa fa-angle-right"></i>
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<hr>

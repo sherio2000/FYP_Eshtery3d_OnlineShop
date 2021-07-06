@@ -1,0 +1,301 @@
+
+        <main class="ps-main">
+          <div class="header-services">
+            <div class="ps-services">
+              <owl-carousel-o [options]="headerSliderOptions">
+                <ng-template carouselSlide>
+                  <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Eshtery3D</p>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <p class="ps-service"><i class="fa fa-cube"></i><strong>3D View</strong>: View your product in 3D View only with Eshtery3D</p>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <p class="ps-service"><i class="fa fa-magic"></i><strong>Auto Garment Size </strong>: Find your best fit with our smart garment size recommendation</p>
+                </ng-template>
+              </owl-carousel-o>
+
+            </div>
+          </div>
+            <div class="ps-section masonry-root pt-10 pb-40">
+              <div class="ps-container">
+                <div class="ps-banner">
+                  <div class="fullscreenbanner">
+                    <owl-carousel-o [options]="sliderOptions">
+                      <ng-template carouselSlide><img src="./assets\images\slider\3.jpg" alt=""></ng-template> 
+                      <ng-template carouselSlide><img src="./assets\images\slider\3.jpg" alt=""></ng-template> 
+                      <ng-template carouselSlide><img src="./assets\images\slider\3.jpg" alt=""></ng-template> 
+                    </owl-carousel-o>
+                  </div>
+                </div>
+                <div class="ps-section__header mb-50">
+                  <h3 class="ps-section__title" data-mask="Promotion">- Our Event</h3>
+                </div>
+                <div class="ps-section__content pb-50">
+                  <div class="masonry-wrapper" data-col-md="3" data-col-sm="2" data-col-xs="1" data-gap="30" data-radio="100%">
+                    <div class="ps-masonry">
+                      <div class="grid-item">
+                        <div class="grid-item__content-wrapper"><a class="ps-offer"><img src="./assets/images/offer/home-2-1.jpg" alt=""></a></div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="grid-item__content-wrapper"><a class="ps-offer"><img src="./assets/images/offer/home-2-2.jpg" alt=""></a></div>
+                      </div>
+                      <div class="grid-item high">
+                        <div class="grid-item__content-wrapper"><a class="ps-offer"><img src="./assets/images/offer/home-2-5.jpg" alt=""></a></div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="grid-item__content-wrapper"><a class="ps-offer"><img src="./assets/images/offer/home-2-3.jpg" alt=""></a></div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="grid-item__content-wrapper"><a class="ps-offer"><img src="./assets/images/offer/home-2-4.jpg" alt=""></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ps-section--features-product ps-section masonry-root pt-40 pb-80">
+              <div class="ps-container">
+                <div class="ps-section__header mb-50">
+                  <h3 class="ps-section__title" data-mask="features">- New Product</h3>
+                  <ul class="ps-masonry__filter">
+                    <li class="current"><a href="#" data-filter="*">All <sup>8</sup></a></li>
+                    <li><a href="#" data-filter=".nike">Nike <sup>1</sup></a></li>
+                    <li><a href="#" data-filter=".adidas">Adidas <sup>1</sup></a></li>
+                    <li><a href="#" data-filter=".men">Men <sup>1</sup></a></li>
+                    <li><a href="#" data-filter=".women">Women <sup>1</sup></a></li>
+                    <li><a href="#" data-filter=".kids">Kids <sup>4</sup></a></li>
+                  </ul>
+                </div>
+                <div class="ps-section__content pb-50">
+                  <div class="masonry-wrapper" data-col-md="4" data-col-sm="2" data-col-xs="1" data-gap="30" data-radio="100%">
+                    <div class="row">
+                      <div class="grid-item kids" *ngFor="let item of products">
+                        <app-product-item-home [product]="item"></app-product-item-home>
+                      </div>
+                      <!--Stooop here--> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ps-home-testimonial bg--parallax pb-80" data-background="./assets/images/background/parallax.jpg">
+              <div class="container">
+                  <div class="ps-testimonial">
+                    <!--image (150x150)-->
+                    <div class="ps-testimonial__thumbnail mt-4"><img src="./assets/images/user/prof_pic.png" alt=""><i class="fa fa-quote-left"></i></div>
+                    <header>
+                      <select class="ps-rating">
+                        <option value="1">1</option>
+                        <option value="1">2</option>
+                        <option value="1">3</option>
+                        <option value="1">4</option>
+                        <option value="5">5</option>
+                      </select>
+                      <p>Sherif Magdy - CEO & Founder Invision</p>
+                    </header>
+                    <footer>
+                      <p>“You can’t wait for customers to come to you. You have to figure out where they are, go there and drag them back to your store. Therefore, we've made E-commerce easier and better.”</p>
+                    </footer>
+                  </div>
+              </div>
+            </div>
+            <div class="ps-features pt-80 pb-80">
+              <div class="ps-container">
+                <div class="row">
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="ps-iconbox">
+                          <div class="ps-iconbox__header"><i class="ps-icon-delivery"></i>
+                            <h3>Free shipping</h3>
+                            <p>ON ORDER OVER $199</p>
+                          </div>
+                          <div class="ps-iconbox__content">
+                            <p>Want to track a package? Find tracking information and order details from Your Orders.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="ps-iconbox">
+                          <div class="ps-iconbox__header"><i class="ps-icon-money"></i>
+                            <h3>100% MONEY BACK.</h3>
+                            <p>WITHIN 30 DAYS AFTER DELIVERY.</p>
+                          </div>
+                          <div class="ps-iconbox__content">
+                            <p>You may return most new, unopened items sold within 30 days of delivery for a full refund.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="ps-iconbox">
+                          <div class="ps-iconbox__header"><i class="ps-icon-customer-service"></i>
+                            <h3>SUPPORT 24/7.</h3>
+                            <p>WE CAN HELP YOU ONLINE.</p>
+                          </div>
+                          <div class="ps-iconbox__content">
+                            <p>We offer a 24/7 customer hotline so you’re never alone if you have a question.</p>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+            <app-footer></app-footer>
+            <script>
+              $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+            })
+            </script>
+
+ 
+   <!-- <carousel class="container col-md-11" width="550px">
+        <slide class="animated fadeIn">
+            <img src="assets/images/hero1.jpg" height="450" alt="first slide" style="display: block; width: 100%;">
+        </slide>
+        <slide class="animated fadeIn">
+            <img src="assets/images/hero2.jpg" height="450" alt="first slide" style="display: block; width: 100%;">
+        </slide>
+        <slide class="animated fadeIn">
+            <img src="assets/images/hero3.jpg" height="450" alt="first slide" style="display: block; width: 100%;">
+        </slide>    
+    </carousel> 
+      
+
+<div class="container">
+<section class="text-center mb-4" style="margin-top: 10px;">
+
+    //Grid row
+    <div class="row wow fadeIn">
+
+      //Grid column
+        <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card">
+
+            <div class="">
+                <div class="box same-height">
+                    <div class="icon">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3><a href="#"> Title </a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati iste sunt dolor fuga mollitia suscipit blanditiis quaerat sit delectus id, aliquam debitis. Natus iste, non culpa inventore dicta ipsa architecto? </p>
+                </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+// CARD
+            <div class="card">
+//CARD CONTENT
+            <div class="">
+                <div class="box same-height">
+                    <div class="icon">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3><a href="#"> Title </a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati iste sunt dolor fuga mollitia suscipit blanditiis quaerat sit delectus id, aliquam debitis. Natus iste, non culpa inventore dicta ipsa architecto? </p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+            <div class="">
+                <div class="box same-height">
+                    <div class="icon">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3><a href="#"> Title </a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati iste sunt dolor fuga mollitia suscipit blanditiis quaerat sit delectus id, aliquam debitis. Natus iste, non culpa inventore dicta ipsa architecto? </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+     <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-sm-4">
+                <div class="">
+                    <div class="">
+                        <h3><a href="#"> title </a></h3>
+                        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa numquam, reprehenderit ipsam neque sunt excepturi amet sed doloremque nisi, molestiae ducimus corrupti voluptates officia ullam quam eaque quia eligendi nesciunt. </p>
+                    </div>
+                </div>
+            
+        </div>
+    </div> 
+
+
+        
+    <div class="container col-md-12" style="margin-top: 10px;">
+        <section class="text-center mb-4" style="margin-top: 55px;">
+            <div class="row wow fadeIn ">
+                <div class="col-md-12">
+                    <div class="card" style="height: 70px; background-color: #f5f5f5;">
+                        <div style="margin-top: 18px;">
+                            <h1 class="text-center text-uppercase"><strong>Latest This Week!</strong></h1>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+    </div>
+    <div class="container col-md-12" style="margin-top: 10px;" >
+        <div class="container col-md-11">
+            <div class="">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide *ngFor="let item of products">
+                            <app-product-item-home [product]="item"></app-product-item-home>
+                    </ng-template> 
+                </owl-carousel-o>
+            </div> 
+        </div>
+    </div>
+    <div class="container col-md-12" style="margin-top: 60px;">
+        <section class="text-center mb-4" style="margin-top: 55px;">
+            <div class="row wow fadeIn ">
+                <div class="col-md-12">
+                    <div class="card" style="height: 70px; background-color: #f5f5f5;">
+                        <div style="margin-top: 18px;">
+                            <h1 class="text-center text-uppercase"><strong>Trending Products!</strong></h1>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+    </div>
+    <div class="container col-md-12" style="margin-top: 60px;" >
+        <div class="container col-md-11">
+            <div class="">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide *ngFor="let item of products">
+                            <app-product-item-home [product]="item"></app-product-item-home>
+                    </ng-template> 
+                </owl-carousel-o>
+            </div> 
+        </div>
+    </div> -->
+      
+        <!-- <div class="d-flex flex-row card justify-content-start " style="margin-top: 355px; max-height: 500px;">
+                    <div class="p-2">
+                        <div class="box same-height">
+                            <img src="./assets\images\side.jpg">
+                        </div>
+                    </div>
+        </div>
+      <div class="d-flex flex-row card col-md-1 justify-content-end" style="margin-top: 355px; margin-left: 0px; max-height: 500px;">
+        <div class="p-2">
+            <div class="box same-height">
+                <h3><a href="#"> title </a></h3>
+                <p> Lorem. </p>
+            </div>
+        </div>
+      </div>
+       -->
+    
+  <!--Main layout-->
+
+
+  <script>
+      new WOW().init();
+  </script>

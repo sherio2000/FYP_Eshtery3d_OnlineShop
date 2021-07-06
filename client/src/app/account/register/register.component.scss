@@ -1,0 +1,45 @@
+.note
+{
+    margin-top: 25px;
+    text-align: center;
+    height: auto;
+    border-radius: 10px;
+    background: -webkit-linear-gradient(left, #0072ff, #2196F3);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+
+.btnSubmit
+{
+    margin-left: 40px;
+    margin-top: 25px;
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #2196F3;
+    color: #fff;
+}
+
+body {
+    margin: 20px;
+  }
+  
+  // workaround
+  .intl-tel-input {
+    display: table-cell;
+  }
+  .intl-tel-input .selected-flag {
+    z-index: 4;
+  }
+  .intl-tel-input .country-list {
+    z-index: 5;
+  }
+  .input-group .intl-tel-input .form-control {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+  }

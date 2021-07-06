@@ -1,0 +1,264 @@
+
+<body>
+  <main class="ps-main">
+	<div class="test">
+	  <div class="container">
+		<div class="row">
+			  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+			  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="ps-product--detail pt-60">
+	  <div class="ps-container">
+		<div class="row">
+		  <div class="col-lg-10 col-md-12">
+			<div class="ps-product__thumbnail">
+			  	<div class="card" style="width: 500px;">  
+					<owl-carousel-o [options]="productSlider">
+						<ng-container>
+							<ng-template carouselSlide><img class="card" style="max-width: 400px; max-height: 380px;" class="zoom" [src]="this.product.pictureUrl"></ng-template>
+							<ng-template carouselSlide *ngIf="product.pictureUrl1 !== null"><img style="max-width: 400px; max-height: 380px;"  class="zoom" [src]="this.product.pictureUrl1"></ng-template>
+							<ng-template carouselSlide *ngIf="product.pictureUrl2 !== null"><img style="max-width: 400px; max-height: 380px;"  class="zoom" [src]="this.product.pictureUrl2"></ng-template>
+							<ng-template carouselSlide *ngIf="product.pictureUrl3 !== null"><img style="max-width: 400px; max-height: 380px;"  class="zoom" [src]="this.product.pictureUrl3"></ng-template>
+							<ng-template carouselSlide *ngIf="product.pictureUrl4 !== null"><img style="max-width: 400px; max-height: 380px;"  class="zoom" [src]="this.product.pictureUrl4"></ng-template>
+						</ng-container>	
+					</owl-carousel-o>
+				</div>
+			</div>
+			<div class="ps-product__thumbnail--mobile">
+			  <div class="ps-product__main-img"><img src="{{this.product.pictureUrl}}" alt=""></div>
+			  <div class="ps-product__preview owl-slider"></div>
+			</div>
+			<div class="ps-product__info">
+			  <div class="ps-product__rating">
+				<div class="ps-rating">
+					<rating [(ngModel)]="productRating" [max]="5" [readonly]="true" [titles]="['Very Bad','Poor', 'Ok', 'Good', 'Excellent']"></rating>
+				</div>
+				<!-- <a href="#">(Read all 8 reviews)</a> -->
+			  </div>
+			  <h1>{{this.product.name}}</h1>
+			  <p class="ps-product__category"><a>{{this.product.productCategory}}</a>,<a> {{product.productType}}</a>,<a href="#">{{product.productBrand}}</a></p>
+			  <div *ngIf="this.product.productDiscount !== 0.0">
+				<h3 class="ps-product__price">{{(1 - this.product.productDiscount) * product.price | currency}}</h3>
+				<div>
+					<del>{{this.product.price | currency}}</del>
+				</div>
+			  </div>
+			  <div *ngIf="this.product.productDiscount == 0.0">
+				<h3 class="ps-product__price">{{(this.product.price | currency)}}</h3>
+			  </div>
+
+			  <div class="ps-product__block ps-product__quickview">
+				<h4>QUICK REVIEW</h4>
+				<p>{{this.product.description}}</p>
+			  </div>
+			  <div *ngIf="this.product.productType === 'Clothes'" class="ps-product__block ps-product__size">
+				<h4>CHOOSE YOUR SIZE <a class="ml-4">Virtual Fitting <i class="ps-icon-next"></i></a></h4>
+					<select class="ps-select selectpicker">
+						<option value="1">Select Size</option>
+						<option value="2">4</option>
+						<option value="3">4.5</option>
+						<option value="3">5</option>
+						<option value="3">6</option>
+						<option value="3">6.5</option>
+						<option value="3">7</option>
+						<option value="3">7.5</option>
+						<option value="3">8</option>
+						<option value="3">8.5</option>
+						<option value="3">9</option>
+						<option value="3">9.5</option>
+						<option value="3">10</option>
+					</select>
+			  </div>
+			  <div class="ps-product__block ps-product__size">
+				<div class="form-group">
+					<h4 class="ml-3">Quantity</h4>
+					<span class="ml-3"><i (click)="decrementQuantity()" class="fa fa-minus-circle text-warning mr-2" style="cursor: pointer; font-size: 2em;"></i>
+						<span class="font-weight-bold" style="font-size: 1.5em;">{{this.quantity}}</span>
+						<i (click)="incrementQuantity()" class="fa fa-plus-circle text-warning mx-2" style="cursor: pointer; font-size: 2em;"></i>
+					</span>
+				</div>
+				<a class="ps-btn mb-10 ml-5" style="top: -20px;" (click)="addToCart()">Add to cart<i class="ps-icon-next"></i></a>
+			  </div>
+			  <div class="ps-product__shopping">
+				<div class="ps-product__shopping">
+					<a  class="ps-btn mb-10" (click)="openModal(modelViewer)">3D View<i class="ps-icon-next"></i></a>
+					<div class="ps-product__actions">
+						<a class="mr-10" (click)="addItemToWishlist()" routerLink="/account/wishlist">
+							<i class="ps-icon-heart"></i>
+						</a>
+						<a (click)="openModal(compareMain)"> 
+							<i class="ps-icon-share"></i>
+						</a>
+					</div>
+				</div>
+			  </div>
+			</div>
+			<ng-template #modelViewer class="container">
+				<div class="modal-header">
+					<h4 class="modal-title pull-left">{{this.product.name}}</h4>
+					<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body" style="height: 500px;" id="modal-body">
+					<app-modal-service [product3dUrl]="this.product.product3dUrl"></app-modal-service>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+				</div>
+				</ng-template>
+			<ng-template #compareMain class="container">
+				<div class="modal-header">
+					<h4 class="modal-title pull-left" style="text-align: center;">Compare Products</h4>
+					<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body" id="modal-body">
+					<div class="roww">
+						<div class="column card bord">
+							<div class="card-header">
+								<h3 style="text-align: center;"><strong>{{this.product.name}}</strong></h3>
+							</div>
+							<div class="card-body">
+								<app-product-compare [id]="this.product.id"></app-product-compare>
+							</div>
+						</div>
+						<div class="column card">
+							<div class="card-header col-12">
+								<select (change)="getCompareProduct($event.target.value)" style="height: 30px; width: auto; border: 0px; background-color: rgb(209, 209, 209);" >
+									<option disabled>Select Product</option>
+									<option *ngFor="let cproduct of products" value="{{cproduct.id}}">{{cproduct.name}}</option>
+								</select>
+							</div>
+							<div *ngIf="this.compareProduct" class="card-body">
+								<app-product-compare [id]="this.compareProduct.id"></app-product-compare>
+							</div>
+						</div>
+						<!-- <div class="column card">
+							<div class="card-header">
+								<h1>Hi</h1>
+							</div>
+							<h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id molestiae, sunt, quae veritatis, rerum saepe ducimus quasi necessitatibus nulla atque eum similique ullam expedita. Labore eius corporis nulla perferendis modi.</h1>
+						</div> -->
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+				</div>
+			</ng-template>
+			<div class="clearfix"></div>
+			<div class="ps-product__content mt-50">
+			  <ul class="tab-list" role="tablist">
+				<li class="active"><a href="#tab_01" aria-controls="tab_01" role="tab" data-toggle="tab">Overview</a></li>
+				<li><a href="#tab_02" aria-controls="tab_02" role="tab" data-toggle="tab">Review</a></li>
+				<li><a href="#tab_03" aria-controls="tab_03" role="tab" data-toggle="tab">PRODUCT TAG</a></li>
+				<li><a href="#tab_04" aria-controls="tab_04" role="tab" data-toggle="tab">ADDITIONAL</a></li>
+			  </ul>
+			</div>
+			<div class="tab-content mb-60">
+			  <div class="tab-pane active" role="tabpanel" id="tab_01">
+				{{this.product.specifications}}
+			  </div>
+			  <div class="tab-pane" role="tabpanel" id="tab_02">
+				  <div class="ps-review">
+						<div class="card" *ngIf="((currentUser$ | async) && this.userReviwed == 0)">
+							<div class="card-header">
+								<h3 style="text-align: center;"><strong>Please give us your review on this product</strong></h3>
+							</div>
+							<div class="card-body">
+								<form [formGroup]="AddReviewFormGroup" (ngSubmit)="OnSubmit()">
+									<div class="form-group">
+										<div class="ps-rating">
+											<rating [(ngModel)]="Ratingvalue" formControlName="Rate" [max]="5" [readonly]="false" [titles]="['Very Bad','Poor', 'Ok', 'Good', 'Excellent']"></rating>
+										</div>
+										
+									</div>
+									<div class="form-group">
+										<textarea formControlName="Review" style="resize: none;" class="form-control" rows="4" cols="6" placeholder="Enter your Review here..."></textarea>
+									</div>
+									<div class="form-group">
+										<button [disabled]="this.AddReviewFormGroup.get('Review').invalid" class="ps-btn" type="submit">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div *ngIf="!(currentUser$ | async)" class="card">
+							<div class="card-header">
+								<h3 style="text-align: center;">LOGIN TO ADD A REVIEW</h3>
+							</div>
+						</div>
+						<div *ngIf="this.reviewed" class="card">
+							<div class="card-header">
+								<h3 style="text-align: center;"><strong>Thank you for your review!</strong></h3>
+							</div>
+						</div>
+				  </div>
+				<p class="mb-20">{{this.productReviewsCount}} review for <strong>{{this.product.name}}</strong></p>
+				<div class="ps-review" *ngFor="let review of reviews.slice(0,noOfReviews)">
+				  <div class="ps-review__thumbnail"><img src="./assets/images/user/1.jpg" alt=""></div>
+				  <div class="ps-review__content">
+					<header>
+						<div class="ps-rating">
+							<rating [(ngModel)]="this.review.rate" [max]="5" [readonly]="true" [titles]="['Very Bad','Poor', 'Ok', 'Good', 'Excellent']"></rating>
+						</div>
+					  <p>By {{review.userName}}</p>
+					</header>
+					<p>{{review.review}}</p>
+				  </div>
+				</div>
+				<button *ngIf="this.noOfReviews < this.productReviewsCount || this.noOfReviews > 2" (click)="seeMore()" style="border-radius: 20px; border: 0px;" class="btn-success col-12">See More <i class="fa fa-angle-down"></i></button>
+				<button *ngIf="this.noOfReviews > 3 " (click)="seeLess()" style="border-radius: 20px; border: 0px;" class="btn-success mt-2 col-12">See Less <i class="fa fa-angle-up"></i></button>
+			  </div>
+			  <!-- <div class="tab-pane" role="tabpanel" id="tab_03">
+				<p>Add your tag <span> *</span></p>
+				<form class="ps-product__tags" action="_action" method="post">
+				  <div class="form-group">
+					<input class="form-control" type="text" placeholder="">
+					<button class="ps-btn ps-btn--sm">Add Tags</button>
+				  </div>
+				</form>
+			  </div>
+			  <div class="tab-pane" role="tabpanel" id="tab_04">
+				<div class="form-group">
+				  <textarea class="form-control" rows="6" placeholder="Enter your addition here..."></textarea>
+				</div>
+				<div class="form-group">
+				  <button class="ps-btn" type="button">Submit</button>
+				</div>
+			  </div> -->
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="ps-section ps-section--top-sales ps-owl-root pt-40 pb-80">
+	  <div class="ps-container">
+		<div class="ps-section__header mb-50">
+		  <div class="row">
+				<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
+				  <h3 class="ps-section__title" data-mask="Related item">- YOU MIGHT ALSO LIKE</h3>
+				</div>
+		  </div>
+		</div>
+		<div class="ps-product__columns">
+			<div class="ps-product__column" *ngFor="let item of products">
+			  <app-product-item [product]="item" ></app-product-item>
+			</div>
+		  </div>
+	  </div>
+	</div>
+	<owl-carousel-o [options]="customOptions">
+        <ng-container>
+          <ng-template carouselSlide><img width="150px" height="250px" src="./assets/images/clothes/1.jpg" alt=""></ng-template> 
+          <ng-template carouselSlide><img width="150px" height="250px" src="./assets/images/clothes/1.jpg" alt=""></ng-template>
+		  <ng-template carouselSlide><img width="150px" height="250px" src="./assets/images/clothes/1.jpg" alt=""></ng-template> 
+          <ng-template carouselSlide><img width="150px" height="250px" src="./assets/images/clothes/1.jpg" alt=""></ng-template>
+		  <ng-template carouselSlide><img width="150px" height="250px" src="./assets/images/clothes/1.jpg" alt=""></ng-template>
+        </ng-container>
+    </owl-carousel-o>
+	<app-footer></app-footer>
+  </main>
+</body>

@@ -1,0 +1,28 @@
+<main>
+  <div class="ps-container"> 
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+        <div class="card card-signin my-5" style="border-radius: 10px;">
+          <form (onsubmit)="onSubmit()">
+          <app-stepper class="mt-2" [linearModeSelected]="false" #appStepper>
+            <cdk-step [label]="'Account Details'" [completed]="(UserRegisterationForm.get('UserAccountForm').valid)">
+              <hr>
+              <app-account-details [registerForm]="UserRegisterationForm"></app-account-details>
+            </cdk-step>
+            <cdk-step [label]="'Address Details'" [completed]="(UserRegisterationForm.get('UserAddressForm').valid)">
+              <hr>
+              <app-address-details [registerForm]="UserRegisterationForm"></app-address-details>
+            </cdk-step>
+            <cdk-step [label]="'Measurement Details'" [completed]="(UserRegisterationForm.get('UserMeasurementsForm').valid)">
+              <hr>
+              <app-measurements-details [registerForm]="UserRegisterationForm"></app-measurements-details>
+            </cdk-step>
+          </app-stepper>
+        </form>
+          <h5 class="mb-3" style="text-align: center;">Already have an account? <a routerLink="/account/login" style="color: green;">Sign in</a></h5>
+         </div> 
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  </main>

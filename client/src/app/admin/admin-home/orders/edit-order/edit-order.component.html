@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center; align-items: center;">
+            <form [formGroup]="updateOrderStatus" (ngSubmit)="OnSubmit()">
+                <div class="form-group col-12">
+                    <h5>Status: </h5>
+                    <select class="customSelect ml-2" formControlName="Status">
+                        <option value="Pending">Pending</option>
+                        <option value="Preparing">Preparing</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="OutForDelivery">Out For Delivery</option>
+                        <option value="Recieved">Recieved</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="form-group col-12">
+                    <button type="submit" class="btn btn-primary col-12"  style="background-color: #2ac37d; border: 0px;">
+                        Update Order Status! <i class="fa fa-angle-right"></i>
+                    </button>
+                </div>
+                <div *ngIf="this.updated" class="form-group col-12">
+                    <h4 style="text-align: center; color: green;"><i class="fa fa-check"></i>Successfully Updated Order Status! </h4>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

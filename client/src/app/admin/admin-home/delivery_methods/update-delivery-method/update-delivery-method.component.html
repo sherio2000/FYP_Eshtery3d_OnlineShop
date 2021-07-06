@@ -1,0 +1,48 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-9 mx-auto">
+                <div class="card card-signin my-5" style="border-radius: 10px;">
+                    <form [formGroup]="updateDeliveryMethodForm" (ngSubmit)="OnSubmit()" > 
+                        <div class="card-header">
+                            <h1 style="text-align: center;">Update Delivery Method</h1>
+                            <h4 style="text-align: center; color:red;">Please make sure that all field with ** are fulfilled</h4> 
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-12 row ">
+                                    <div class="col-6">
+                                        <label class="row ml-2" style="color: #686868; font-size: 20px;">Delivery Method Name <p style="color: red;">**</p></label>
+                                        <input class="customInput" type="text" formControlName="ShortName" value="{{this.deliveryMethod.shortName}}">
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="row ml-2" style="color: #686868; font-size: 20px;">Delivery Method Description <p style="color: red;">**</p></label>
+                                        <input class="customInput" type="text" formControlName="Description" value="{{this.deliveryMethod.description}}">
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 row">
+                                    <div class="col-6">
+                                        <label class="row ml-2" style="color: #686868; font-size: 20px;">Delivery Method Delivery Time <p style="color: red;">**</p></label>
+                                        <input class="customInput" type="text" formControlName="DeliveryTime" value="{{this.deliveryMethod.deliveryTime}}">
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="row ml-2" style="color: #686868; font-size: 20px;">Delivery Method Price <p style="color: red;">**</p></label>
+                                        <input class="customInput" type="number" min="5" max="60" formControlName="Price" value="{{this.deliveryMethod.price}}">
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <button type="submit" class="btn btn-primary col-12"  style="background-color: #2ac37d; border: 0px;">
+                                        Update Delivery Method! <i class="fa fa-angle-right"></i> 
+                                    </button>
+                                </div>
+                                <div *ngIf="this.updated" class="form-group col-12">
+                                    <h4 style="text-align: center; color: green;"><i class="fa fa-check"></i>Successfully Updated Delivery Method </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

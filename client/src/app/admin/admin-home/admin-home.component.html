@@ -1,0 +1,120 @@
+<div class="sidenav">
+    <div class="btn-group" dropdown>
+        <a><button  type="button" style="color: white;" class="btn"><i style="border-radius: 30px;" class="fa fa-user"></i> Welcome Admin</button></a>
+        <a><button style="color: white;" type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dropdownToggle>
+          <span class="sr-only"></span>
+        </button></a>
+        <div class="dropdown-menu" *dropdownMenu>
+          <a class="dropdown-item" (click)="Logout()"><i class="fa fa-sign-out"></i><span></span> Logout</a>
+        </div>
+    </div>
+    <hr style="background-color: white;">
+    <button *ngIf="this.dashboard" (click)="openDashboard()" class="dropdown-btn active">Dashboard</button>
+    <button *ngIf="!this.dashboard" (click)="openDashboard()" class="dropdown-btn">Dashboard</button>
+
+    <button *ngIf="this.delete_orders" (click)="openDeleteOrderPage()" class="dropdown-btn active">View Orders</button>
+    <button *ngIf="!this.delete_orders" (click)="openDeleteOrderPage()" class="dropdown-btn">View Orders</button>
+
+    <button (click)="toggleProductSubSideBar()" class="dropdown-btn">Products 
+        <i *ngIf="this.productSubSideBarToggle" class="fa fa-caret-down"></i>
+        <i *ngIf="!this.productSubSideBarToggle" class="fa fa-caret-right"></i>
+    </button>
+    <div *ngIf="this.productSubSideBarToggle" class="dropdown-container ml-2">
+        <button *ngIf="this.add_product" class="dropdown-btn active" (click)="openAddProductPage()">Add Product</button>
+        <button *ngIf="!this.add_product" class="dropdown-btn" (click)="openAddProductPage()">Add Product</button>
+
+        <button *ngIf="this.delete_product" class="dropdown-btn active" (click)="openDeleteProductPage()">View Products</button>
+        <button *ngIf="!this.delete_product" class="dropdown-btn" (click)="openDeleteProductPage()">View Products</button>
+   </div>
+   <button (click)="toggleProductColorSubSideBar()" class="dropdown-btn">Product Colors
+    <i *ngIf="this.productColorSubSideBarToggle" class="fa fa-caret-down"></i>
+    <i *ngIf="!this.productColorSubSideBarToggle" class="fa fa-caret-right"></i>
+    </button>
+    <div *ngIf="this.productColorSubSideBarToggle" class="dropdown-container ml-2">
+        <button *ngIf="this.add_product_color" class="dropdown-btn active" (click)="openAddProductColorPage()">Add Product Color</button>
+        <button *ngIf="!this.add_product_color" class="dropdown-btn" (click)="openAddProductColorPage()">Add Product Color</button>
+
+        <button *ngIf="this.delete_product_color" class="dropdown-btn active" (click)="openDeleteProductColorPage()">View Product Colors</button>
+        <button *ngIf="!this.delete_product_color" class="dropdown-btn" (click)="openDeleteProductColorPage()">View Product Colors</button>
+    </div>
+    <button (click)="toggleProductCategorySubSideBar()" class="dropdown-btn">Product Category
+        <i *ngIf="this.productCategorySubSideBarToggle" class="fa fa-caret-down"></i>
+        <i *ngIf="!this.productCategorySubSideBarToggle" class="fa fa-caret-right"></i>
+    </button>
+    <div *ngIf="this.productCategorySubSideBarToggle" class="dropdown-container ml-2">
+        <button *ngIf="this.add_product_category" class="dropdown-btn active" (click)="openAddProductCategoryPage()">Add Product Category</button>
+        <button *ngIf="!this.add_product_category" class="dropdown-btn" (click)="openAddProductCategoryPage()">Add Product Category</button>
+        
+        <button *ngIf="this.delete_product_category" class="dropdown-btn active" (click)="openDeleteProductCategoryPage()">View Product Categories</button>
+        <button *ngIf="!this.delete_product_category" class="dropdown-btn" (click)="openDeleteProductCategoryPage()">View Product Categories</button>
+    </div>
+    <button (click)="toggleProductTypesSubSideBar()" class="dropdown-btn">Product Types
+        <i *ngIf="this.productTypesSubSideBarToggle" class="fa fa-caret-down"></i>
+        <i *ngIf="!this.productTypesSubSideBarToggle" class="fa fa-caret-right"></i>
+    </button>
+    <div *ngIf="this.productTypesSubSideBarToggle" class="dropdown-container ml-2">
+        <button *ngIf="this.add_product_type" class="dropdown-btn active" (click)="openAddProductTypePage()">Add Product Type</button>
+        <button *ngIf="!this.add_product_type" class="dropdown-btn" (click)="openAddProductTypePage()">Add Product Type</button>
+
+        <button *ngIf="this.delete_product_type" class="dropdown-btn active" (click)="openDeleteProductTypePage()">View Product Types</button>
+        <button *ngIf="!this.delete_product_type" class="dropdown-btn" (click)="openDeleteProductTypePage()">View Product Types</button>
+    </div>
+
+    <button (click)="toggleProductBrandsSubSideBar()" class="dropdown-btn">Product Brands
+        <i *ngIf="this.productBrandSubSideBarToggle" class="fa fa-caret-down"></i>
+        <i *ngIf="!this.productBrandSubSideBarToggle" class="fa fa-caret-right"></i>
+    </button>
+    <div *ngIf="this.productBrandSubSideBarToggle" class="dropdown-container ml-2">
+        <button *ngIf="this.add_product_brand" class="dropdown-btn active" (click)="openAddProductBrandPage()">Add Product Brand</button>
+        <button *ngIf="!this.add_product_brand" class="dropdown-btn" (click)="openAddProductBrandPage()">Add Product Brand</button>
+
+        <button *ngIf="this.delete_product_brand" class="dropdown-btn active" (click)="openDeleteProductBrandPage()">View Product Brand</button>
+        <button *ngIf="!this.delete_product_brand" class="dropdown-btn" (click)="openDeleteProductBrandPage()">View Product Brand</button>
+    </div>
+
+    <button (click)="toggleDeliveryMethodsSubSideBar()" class="dropdown-btn">Delivery Methods
+        <i *ngIf="this.deliveryMethodSubSideBarToggle" class="fa fa-caret-down"></i>
+        <i *ngIf="!this.deliveryMethodSubSideBarToggle" class="fa fa-caret-right"></i>
+    </button>
+    <div *ngIf="this.deliveryMethodSubSideBarToggle" class="dropdown-container ml-2">
+        <button *ngIf="this.add_delivery_method" class="dropdown-btn active" (click)="openAddDeliveryMethodPage()">Add Delivery Method</button>
+        <button *ngIf="!this.add_delivery_method" class="dropdown-btn" (click)="openAddDeliveryMethodPage()">Add Delivery Method</button>
+
+        <button *ngIf="this.delete_delivery_method" class="dropdown-btn active" (click)="openDeleteDeliveryMethod()">View Delivery Methods</button>
+        <button *ngIf="!this.delete_delivery_method" class="dropdown-btn" (click)="openDeleteDeliveryMethod()">View Delivery Methods</button>
+    </div>
+
+    <button (click)="toggleUsersSubSideBar()" class="dropdown-btn">Users
+        <i *ngIf="this.usersSubSideBarToggle" class="fa fa-caret-down"></i>
+        <i *ngIf="!this.usersSubSideBarToggle" class="fa fa-caret-right"></i>
+    </button>
+    <div *ngIf="this.usersSubSideBarToggle" class="dropdown-container ml-2">
+        <button class="dropdown-btn">Add User</button>
+        <button class="dropdown-btn">Edit User</button> 
+        <button class="dropdown-btn">View Users</button>
+    </div>
+</div>
+  
+<div class="main">
+    <app-dashboard *ngIf="this.dashboard"></app-dashboard>
+
+    <app-add-product *ngIf="this.add_product"></app-add-product>
+    <app-delete-product *ngIf="this.delete_product"></app-delete-product>
+
+    <app-add-product-color *ngIf="this.add_product_color"></app-add-product-color>
+    <app-delete-product-color *ngIf="this.delete_product_color"></app-delete-product-color>
+
+    <app-add-product-category *ngIf="this.add_product_category"></app-add-product-category>
+    <app-delete-product-category *ngIf="this.delete_product_category"></app-delete-product-category>
+
+    <app-add-product-beand *ngIf="this.add_product_brand"></app-add-product-beand>
+    <app-delete-product-brand *ngIf="this.delete_product_brand"></app-delete-product-brand>
+
+    <app-add-product-type *ngIf="this.add_product_type"></app-add-product-type>
+    <app-delete-product-type *ngIf="this.delete_product_type"></app-delete-product-type>
+
+    <app-add-delivery-method *ngIf="this.add_delivery_method"></app-add-delivery-method>
+    <app-delete-delivery-method *ngIf="this.delete_delivery_method"></app-delete-delivery-method>
+
+    <app-delete-order *ngIf="this.delete_orders"></app-delete-order>
+</div>

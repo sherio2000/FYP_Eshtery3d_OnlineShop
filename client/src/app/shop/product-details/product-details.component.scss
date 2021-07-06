@@ -1,0 +1,26 @@
+.column {
+    float: left;
+    width: 50%;
+  }
+
+  /* Clear floats after the columns */
+  .roww:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .vl {
+    border-left: 3px solid black;
+    height: 500px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+  .owl-item {
+      max-width: 500px;
+  }

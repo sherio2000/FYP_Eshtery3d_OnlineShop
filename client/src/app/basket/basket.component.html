@@ -1,0 +1,46 @@
+<div class="">
+    <div *ngIf="(basket$ | async) === null">
+        <p>There are <strong>0</strong> items in your basket</p>
+    </div>
+
+    <div *ngIf="(basket$ | async)">
+        <div class="ps-content pt-80 pb-80">
+            <div class="ps-container">
+              <div class="ps-cart-listing">
+                <app-basket-summary
+                    (decrement)="decrementItemQuantity($event)"
+                    (increment)="incrementItemQuantity($event)"
+                    (remove)="removeBasketItem($event)"
+                    [items]="(basket$ | async).items"
+                ></app-basket-summary>
+                <div class="row">
+                    <app-order-totals
+                    *ngIf="(basketTotals$ | async)"
+                            [shippingPrice]="(basketTotals$ | async).shipping"
+                            [subtotal]="(basketTotals$ | async).subtotal"
+                            [total]="(basketTotals$ | async).total"
+                    ></app-order-totals>         
+                    <div class="ps-cart__actions col-md-7">
+                        <div class="ps-cart__promotion">
+                            <div class="form-group">
+                                <div class="ps-form--icon">
+                                    <input class="form-control" type="text" placeholder="Promo Code">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="ps-btn mb-3">Apply Coupon</button>
+                                <button class="ps-btn ps-btn--gray"><a routerLink="/shop">Continue Shopping</a></button>
+                            </div>
+                        </div>
+                        <div class="ps-cart__total">
+                            <h3>Total Price: <span>{{(basketTotals$ | async).total | currency}}</span></h3>
+                            <button class="ps-btn ps-btn--gray" ><a routerLink="/checkout">Process to checkout<i class="ps-icon-next"></i></a></button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

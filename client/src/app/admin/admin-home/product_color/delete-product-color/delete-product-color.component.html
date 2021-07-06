@@ -1,0 +1,40 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
+                <table class="table ps-cart__table">
+                    <thead>
+                        <tr class="table-header">
+                            <th>#</th>
+                            <th>Color Name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-body" *ngFor="let color of colors; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{color.name}}</td>
+                            <td><button style="border: 0px;" (click)="openModal(editColor)"><a><i class="fa fa-pencil"></i> Edit</a></button></td>
+                            <td><button (click)="deleteColor(color.id)" style="border: 0px;"><a><i class="fa fa-trash"></i> Trash</a></button></td>
+                            <ng-template #editColor class="container">
+                                <div class="modal-header">
+                                    <h4 class="modal-title pull-left" style="text-align: center;">{{color.name}}</h4>
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="modal-body">
+                                    <app-update-product-color [id]="this.color.id"></app-update-product-color>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+                                </div>
+                            </ng-template>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

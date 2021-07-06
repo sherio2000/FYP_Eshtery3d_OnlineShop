@@ -1,0 +1,107 @@
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-9 mx-auto">
+                <div class="card card-signin my-5" style="border-radius: 10px;">
+                    <form [formGroup]="AddProductForm" (ngSubmit)="OnSubmit()" >
+                        <div class="card-header">
+                            <h1 style="text-align: center;">Add Product</h1>
+                            <h4 style="text-align: center; color:red;">Please make sure that all field with ** are fulfilled</h4> 
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <app-text-input [label]="'Product Name **'" formControlName="Name"></app-text-input>
+                                </div>
+                                <div class="form-group col-4">
+                                    <!-- <app-text-input [label]="'Product Price **'" type="number" formControlName="productPrice"></app-text-input> -->
+                                    <input style="font-size: 20px; height: 50px; background-color: #e4e4e4; border: 0px;" placeholder="Product Price" formControlName="productPrice" type="number">
+                                </div>
+                                <div class="form-group col-4">
+                                    <!-- <app-text-input [label]="'Product Discount'" type="number" formControlName="productDiscount"></app-text-input> -->
+                                    <input style="font-size: 20px; height: 50px; background-color: #e4e4e4; border: 0px;" placeholder="Product Discount" formControlName="productDiscount" type="number">
+                                </div>
+                                <div class="form-group col-12">
+                                    <textarea class="col-12" style="resize: none; font-size: 14px;" placeholder="Product Description **" formControlName="Description" rows="5"></textarea>
+
+                                </div>
+                                <div class="form-group col-12">
+                                    <textarea class="col-12" style="resize: none; font-size: 14px;" placeholder="Product Specification **" formControlName="Specifications" rows="5"></textarea>
+                                    <hr>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 1 **</p>
+                                    <input type="file" #fileimg1 placeholder="Choose file" (change)="this.uploadFileimg1(fileimg1.files)" style="display:none;">
+                                    <button type="button" class="btn btn-success" (click)="fileimg1.click()">Upload File</button>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 2</p>
+                                    <input type="file" #fileimg2 placeholder="Choose file" (change)="this.uploadFileimg2(fileimg2.files)"  style="display:none;">
+                                    <button type="button" class="btn btn-success" (click)="fileimg2.click()">Upload File</button>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 3</p>
+                                    <input type="file" #fileimg3 placeholder="Choose file" (change)="this.uploadFileimg3(fileimg3.files)"  style="display:none;">
+                                    <button type="button" class="btn btn-success" (click)="fileimg3.click()">Upload File</button>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 4</p>
+                                    <input type="file" #fileimg4 placeholder="Choose file" (change)="this.uploadFileimg4(fileimg4.files)" style="display:none;">
+                                    <button type="button" class="btn btn-success" (click)="fileimg4.click()">Upload File</button>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product Image 5</p>
+                                    <input type="file" #fileimg5 placeholder="Choose file" (change)="this.uploadFileimg5(fileimg5.files)"  style="display:none;">
+                                    <button type="button" class="btn btn-success" (click)="fileimg5.click()">Upload File</button>
+                                </div>
+                                <div class="form-group col-12">
+                                    <hr>
+                                </div>
+                                <div class="form-group col-3">
+                                    <p>Choose Product 3D File</p>
+                                    <input type="file" #file3dprod placeholder="Choose file" (change)="this.uploadFile3d(file3dprod.files)" style="display:none;">
+                                    <button type="button" class="btn btn-success" (click)="file3dprod.click()">Upload File</button>
+                                </div>
+                                <div class="form-group col-12">
+                                    <hr>
+                                </div>
+                                <div class="form-group col-12 row">
+                                    <p class="form-group col-2 mt-2">Product Brand **</p>
+                                    <select formControlName="productBrandId" class="col-3" style="font-size: 14px; height: 100%;" required>
+                                        <option disabled>Select Product Brand</option>
+                                        <option *ngFor="let brand of brands" [ngValue]="brand.id">{{brand.name}}</option>
+                                    </select>
+                                    <p class="form-group col-2 ml-4 mt-2">Product Type **</p>
+                                    <select formControlName="productTypeId" class="col-3" style="font-size: 14px; height: 100%;" required>
+                                        <option disabled>Select Product Type</option>
+                                        <option *ngFor="let type of productType" [ngValue]="type.id">{{type.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-12 row">
+                                    <p class="form-group col-2 mt-2">Product Color **</p>
+                                    <select formControlName="productColorId" class="col-3" style="font-size: 14px; height: 100%;" required>
+                                        <option disabled>Select Product Color</option>
+                                        <option *ngFor="let color of colors" [ngValue]="color.id">{{color.name}}</option>
+                                    </select>
+                                    <p class="form-group col-3 ml-4 mt-2">Product Categories **</p>
+                                    <select formControlName="productCategoryId" class="col-3" style="font-size: 14px; height: 100%;" required>
+                                        <option disabled>Select Product Categories</option>
+                                        <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+                                    </select>   
+                                </div>
+                                <div class="form-group col-12">
+                                    <hr>
+                                </div>
+                                <div class="form-group col-12">
+                                    <button [disabled]="this.AddProductForm.invalid || this.prodPic1Name === ''" type="submit" class="btn btn-primary col-12"  style="background-color: #2ac37d; border: 0px;">
+                                        Add Product! <i class="fa fa-angle-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

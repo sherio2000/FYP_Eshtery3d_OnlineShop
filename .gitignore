@@ -1,0 +1,63 @@
+# Node rules:
+## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+## Dependency directory
+## Commenting this out is preferred by some people, see
+## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# Book build output
+_book
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.  
+  
+# compiled output  
+/dist  
+/tmp  
+/out-tsc  
+  
+# dependencies  
+/node_modules  
+  
+# IDEs and editors  
+/.idea  
+.project  
+.classpath  
+.c9/  
+*.launch  
+.settings/  
+*.sublime-workspace  
+  
+# IDE - VSCode  
+.vscode/*  
+!.vscode/settings.json  
+!.vscode/tasks.json  
+!.vscode/launch.json  
+!.vscode/extensions.json  
+  
+# misc  
+/.sass-cache  
+/connect.lock  
+/coverage  
+/libpeerconnection.log  
+npm-debug.log  
+yarn-error.log  
+testem.log  
+/typings  
+  
+# System Files  
+.DS_Store  
+Thumbs.db  
+
+API\obj\Debug\netcoreapp3.1\API.assets.cache
+API/obj/Debug/netcoreapp3.1/API.csproj.AssemblyReference.cache
+Core/obj/Debug/netstandard2.1/Core.assets.cache
+Infrastructure/obj/Debug/netstandard2.1/Infrastructure.assets.cache
+Infrastructure/obj/Debug/netstandard2.1/Infrastructure.csproj.AssemblyReference.cache
+client/node_modules/

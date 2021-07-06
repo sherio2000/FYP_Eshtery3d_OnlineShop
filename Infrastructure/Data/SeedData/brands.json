@@ -1,0 +1,86 @@
+[
+  {
+    "Id": 400,
+    "Name": "none"
+  },
+  {
+    "Id": 1,
+    "Name": "Lenovo"
+  },
+  {
+    "Id": 2,
+    "Name": "Dell"
+  },
+  {
+    "Id": 3,
+    "Name": "Hp"
+  }, 
+  {
+    "Id": 4,
+    "Name": "GAP"
+  },
+  {
+    "Id": 5,
+    "Name": "American Eagle"
+  },
+  {
+    "Id": 6,
+    "Name": "Hollister"
+  },
+  {
+    "Id": 7,
+    "Name": "JBL"
+  },
+  {
+    "Id": 8,
+    "Name": "Pioneer"
+  },
+  {
+    "Id": 9,
+    "Name": "LG"
+  },
+  {
+    "Id": 10,
+    "Name": "Samsumg"
+  },
+  {
+    "Id": 11,
+    "Name": "Apple"
+  },
+  {
+    "Id": 12,
+    "Name": "Oppo"
+  },
+  {
+    "Id": 13,
+    "Name": "Sharp"
+  },
+  {
+    "Id": 14,
+    "Name": "Pandora"
+  },
+  {
+    "Id": 15,
+    "Name": "Tiffany & Co."
+  },
+  {
+    "Id": 16,
+    "Name": "Cartier"
+  },
+  {
+    "Id": 17,
+    "Name": "Rode"
+  },
+  {
+    "Id": 18,
+    "Name": "Samson"
+  },
+  {
+    "Id": 19,
+    "Name": "G-Track"
+  },
+  {
+    "Id": 20,
+    "Name": "Kingston"
+  }
+]

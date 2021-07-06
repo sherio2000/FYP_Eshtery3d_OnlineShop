@@ -1,0 +1,53 @@
+<div class="card-body" [formGroup]="registerForm">
+    <div class="row" formGroupName="UserAccountForm">
+        <div class="form-group col-6">
+            <app-text-input [label]="'First Name'" formControlName="FirstName"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'Last Name'" formControlName="LastName"></app-text-input>
+        </div>  
+        <div class="form-group col-6">
+            <app-text-input [label]="'Username'" formControlName="DisplayName"></app-text-input>
+        </div> 
+        <div class="form-group col-6">
+            <app-text-input [label]="'Email'" formControlName="Email"></app-text-input>
+        </div> 
+        <div class="form-group col-12">
+            <app-text-input [label]="'Password'" [type]="'password'" formControlName="Password"></app-text-input>
+        </div> 
+        <div class="form-group col-6" style="color: #7f7f7f;">
+            <input formControlName="BirthDate" style="color: #7f7f7f;" type="text"
+         placeholder="Date Of Birth"
+         class="form-control"
+         bsDatepicker
+         value="dateInputFormat"
+         [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }" required>
+         <!-- <app-text-input
+         bsDatepicker
+         [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD-MM-YYYY' }" [label]="'Date Of Birth'" [type]="'text'" formControlName="BirthDate"></app-text-input> -->
+        </div>
+        <div class="form-group col-6">     
+            <select formControlName= "Gender" class="col-12" style="height: 50px; background-color: #e4e4e4; color: #7f7f7f; border: 0px;" required>
+                <option disabled>Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'Phone Number 1'" formControlName="PhoneNumber1"></app-text-input>
+        </div> 
+        <div class="form-group col-6">
+            <app-text-input [label]="'Phone Number 2 - Optional'" formControlName="PhoneNumber2"></app-text-input>
+        </div> 
+        <div class="form-group col-12">
+            <button [disabled]="registerForm.get('UserAccountForm').invalid"class="btn btn-primary col-12" style="background-color: #2ac37d; border: 0px;" cdkStepperNext>
+                Go to address form  <i class="fa fa-angle-right"></i>
+            </button>
+            <!-- <button *ngIf="registerForm.get('UserAccountForm').invalid" class="btn btn-primary col-12" style="background-color: #2ac37d; border: 0px;" cdkStepperNext disabled>
+                Go to address form  <i class="fa fa-angle-right"></i>
+            </button> -->
+        </div>
+    </div>
+</div>
+
+<hr>

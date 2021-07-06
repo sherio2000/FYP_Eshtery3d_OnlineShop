@@ -1,0 +1,54 @@
+[
+    {
+      "Id": 400,
+      "Name": "none"
+    },
+    {
+      "Id": 1,
+      "Name": "Grey"
+    },
+    {
+      "Id": 2,
+      "Name": "Green"
+    },
+    {
+      "Id": 3,
+      "Name": "Blue"
+    },
+    {
+        "Id": 4,
+        "Name": "Black"
+    },
+    {
+        "Id": 5,
+        "Name": "Red"
+      },
+      {
+        "Id": 6,
+        "Name": "Purple"
+      },
+      {
+        "Id": 7,
+        "Name": "Pink"
+      },
+      {
+          "Id": 8,
+          "Name": "Silver"
+      },
+      {
+          "Id": 9,
+          "Name": "White"
+      },
+      {
+        "Id": 10,
+        "Name": "Light Blue"
+    },
+    {
+        "Id": 11,
+        "Name": "Multi-color"
+    },
+    {
+        "Id": 12,
+        "Name": "Gold"
+    }
+]

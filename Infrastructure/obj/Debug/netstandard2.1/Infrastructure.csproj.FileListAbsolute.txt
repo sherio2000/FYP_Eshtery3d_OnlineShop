@@ -1,0 +1,12 @@
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.csproj.AssemblyReference.cache
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.AssemblyInfoInputs.cache
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.AssemblyInfo.cs
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.csproj.CoreCompileInputs.cache
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.dll
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.pdb
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\bin\Debug\netstandard2.1\Infrastructure.deps.json
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\bin\Debug\netstandard2.1\Infrastructure.dll
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\bin\Debug\netstandard2.1\Infrastructure.pdb
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\bin\Debug\netstandard2.1\Core.dll
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\bin\Debug\netstandard2.1\Core.pdb
+D:\APU\Semester 5\FYP Backup\Backup Latest 3-6-2021\3decommerce2\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.csproj.CopyComplete

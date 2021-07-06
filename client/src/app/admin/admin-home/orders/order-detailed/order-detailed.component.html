@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="card" style="border: 0px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-header">
+                    <h2 style="text-align: center;">Customer Details</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5><strong>Name: </strong> {{this.user.firstName}} {{this.user.lastName}}</h5>
+                        </div>
+                        <div class="col-6">
+                            <h5><strong>Birth Date: </strong> {{this.user.birthDate}}</h5>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <h5><strong>Email: </strong> {{this.user.email}}</h5>
+                        </div>
+                        <div class="col-6">
+                            <h5><strong>UserName: </strong> {{this.user.displayName}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-header">
+                    <h2 style="text-align: center;">Order Address</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5><strong>Street Name: </strong> {{this.order.shipToAddress.streetName}}</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h5><strong>Country: </strong> {{this.order.shipToAddress.country}}</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h5><strong>City: </strong> {{this.order.shipToAddress.city}}</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h5><strong>Address 1: </strong> {{this.order.shipToAddress.address1}}</h5>
+                        </div>
+                    </div>
+                    <div *ngIf="order.shipToAddress.address2" class="row">
+                        <div class="col-12">
+                            <h5><strong>Address 2: </strong> {{this.order.shipToAddress.address2}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container mt-5">
+    <div class="row" *ngIf="order">
+      <div class="col-8">
+        <app-basket-summary
+          [items]="order.orderItems"
+          [isBasket]="false"
+          [isOrder]="true"
+      ></app-basket-summary>
+      </div>
+      <div class="col-4">
+        <app-order-totals
+          [shippingPrice]="order.shippingPrice"
+          [subtotal]="order.subtotal"
+          [total]="order.shippingPrice + order.subtotal"
+        ></app-order-totals>
+      </div>
+    </div>
+</div>

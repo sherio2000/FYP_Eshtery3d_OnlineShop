@@ -1,0 +1,75 @@
+<div class="container col-12">
+    <h2 style="text-align: center;">User Measurements - Optional</h2>
+    <p style="color: red; text-align: center;">Filling in this section is not compulsory, however, you will lose the benefit of the <strong>Garments Auto Size Recommendation System</strong></p>
+</div>
+<hr>
+<div class="card-body" [formGroup]="registerForm">
+    <div class="row" formGroupName="UserMeasurementsForm">
+        <div class="form-group col-3">
+            <label style="color: #7f7f7f;">Neck</label>
+           <input class="ml-2" min="0" step="1" formControlName="Neck" style="height: 50px; width: 80px;" type="number">
+        </div>
+        <div class="form-group col-3">
+            <label style="color: #7f7f7f;">Chest</label>
+           <input class="ml-2" min="0" step="1" formControlName="Chest" style="height: 50px; width: 80px;" type="number">
+        </div>
+        <div class="form-group col-3">
+            <label style="color: #7f7f7f;">Waist</label>
+           <input class="ml-3" min="0" step="1" formControlName="Waist" style="height: 50px; width: 80px;" type="number">
+        </div>
+        <div class="form-group col-3">
+            <label style="color: #7f7f7f;">Hip</label>
+           <input class="ml-3" min="0" step="1" formControlName="Hip" style="height: 50px; width: 80px;" type="number">
+        </div>
+        <div class="form-group col-3">
+            <label style="color: #7f7f7f;">Arm</label>
+           <input class="ml-3" min="0" step="1" formControlName="Arm" style="height: 50px; width: 80px;" type="number">
+        </div>
+        <div class="form-group col-3">
+            <label style="color: #7f7f7f;">Bust</label>
+           <input class="ml-3" min="0" step="1" formControlName="Bust" style="height: 50px; width: 80px;" type="number">
+        </div>
+        <div class="form-group col-3">
+            <label style="color: #7f7f7f;">Height</label>
+           <input class="ml-2" min="0" step="1" formControlName="Height" style="height: 50px; width: 80px;" type="number">
+        </div>
+        <div class="form-group col-3">
+            <label style="color: #7f7f7f;">Weight</label>
+           <input class="ml-2" min="0" step="1" formControlName="Weight" style="height: 50px; width: 80px;" type="number">
+        </div>
+        <div class="form-group col-12">
+            <hr>
+            <p style="text-align: center;">Don't know how to measure? <a (click)="openModal(measure)"><strong>Click here</strong></a></p>
+        </div> 
+        <div class="form-group col-12">
+            <button type="submit" class="btn btn-primary col-12" (click)="onSubmit()" style="background-color: #2ac37d; border: 0px;">
+                Register Now! <i class="fa fa-angle-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<ng-template #measure class="container">
+    <div class="modal-header">
+        <h2 class="modal-title pull-left" style="text-align: center;">How to measure?</h2>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body" style="height: 500px;" id="modal-body">
+        <app-stepper class="mt-2" [linearModeSelected]="false" #appStepper>
+            <cdk-step [label]="'Female'">
+                <hr>
+                <app-female-measure-how></app-female-measure-how>
+              </cdk-step>
+              <cdk-step [label]="'Male'">
+                <hr>
+                <app-male-measure-how></app-male-measure-how>
+              </cdk-step>
+        </app-stepper>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+    </div>
+    </ng-template>
+
+<hr>

@@ -1,0 +1,131 @@
+<div class="container">
+    <div class="section-header">
+        <h2 style="text-align: center;">Product Image Gallery</h2>
+    </div>
+    <hr>
+</div>
+<div class="col-md-12 row">
+    <div class="gallery">
+    <img src="{{this.product.pictureUrl}}" width="600px" height="400px">
+    </div>
+
+    <div *ngIf="this.product.pictureUrl1 != null" class="gallery">
+        <img src="{{this.product.pictureUrl1}}" width="600px" height="400px">
+    </div>
+
+    <div *ngIf="this.product.pictureUrl2 != null" class="gallery">
+        <img src="{{this.product.pictureUrl2}}" width="600px" height="400px">
+    </div>
+    <div *ngIf="this.product.pictureUrl3 != null" class="gallery">
+        <img src="{{this.product.pictureUrl3}}" width="600px" height="400px">
+    </div>
+    <div *ngIf="this.product.pictureUrl4 != null" class="gallery">
+        <img src="{{this.product.pictureUrl4}}" width="600px" height="400px">
+    </div>
+    <hr>
+</div>
+
+<div class="container">
+    <hr>
+    <div class="section-header">
+        <h2>Product Details</h2>
+    </div>
+    <hr>
+</div>
+
+<div class="col-md-12">
+    <div class="container row mt-4">
+        <div class="col-md-3">
+        <h5><strong>Product Name: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <h5>{{this.product.name}}</h5>
+        </div>
+    </div>
+    <div class="container row mt-4">
+        <div class="col-md-3">
+        <h5><strong>Product Price: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <h5>{{this.product.price | currency}}</h5>
+        </div>
+    </div>
+    <div class="container row mt-4">
+        <div class="col-md-3">
+        <h5><strong>Product Discount: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <h5>{{this.product.productDiscount * 100}}%</h5>
+        </div>
+    </div>
+    <div class="container row mt-4">
+        <div class="col-md-3">
+        <h5><strong>Product Description: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <textarea style="resize: none; width: 480px; height: 150px;" disabled>{{this.product.description}}</textarea>
+        </div>
+    </div>
+    <div class="container row mt-4">
+        <div class="col-md-3">
+        <h5><strong>Product Specification: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <textarea style="resize: none; width: 480px; height: 150px;" disabled>{{this.product.specifications}}</textarea>
+        </div>
+    </div>
+    <div class="container row mt-4">
+        <div class="col-md-3">
+        <h5><strong>Product Brand: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <h5>{{this.product.productBrand}}</h5>
+        </div>
+    </div>
+    <div class="container row mt-4">
+        <div class="col-md-3">
+        <h5><strong>Product Category: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <h5>{{this.product.productCategory}}</h5>
+        </div>
+    </div>
+    <div class="container row mt-4">
+        <div class="col-md-3 ">
+        <h5><strong>Product Type: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <h5>{{this.product.productType}}</h5>
+        </div>
+    </div>
+    <div class="container row mt-4">
+        <div class="col-md-3 ">
+        <h5><strong>Product Color: </strong></h5>
+        </div>
+        <div class="col-md-9">
+            <h5>{{this.product.productColor}}</h5>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <hr>
+    <div class="section-header">
+        <h2>Product 3D Model</h2>
+    </div>
+    <hr>
+</div>
+
+<div *ngIf="this.product.product3dUrl != null || this.product.product3dUrl != ''" class="col-md-12">
+    <div class="contatiner row">
+        <app-three-dmodel [product3dUrl]="this.product.product3dUrl"></app-three-dmodel>
+    </div>
+</div>
+
+<div *ngIf="this.product.product3dUrl == null" class="col-md-12">
+    <div class="contatiner row">
+        <h4>None</h4>
+    </div>
+</div>
+
+

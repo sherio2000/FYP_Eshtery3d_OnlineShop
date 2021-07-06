@@ -1,0 +1,43 @@
+  <div class="grid-item__content-wrapper">
+    <div class="ps-shoe mb-30">
+      <div class="ps-shoe__thumbnail">
+        <div class="ps-badge"><span>New</span></div>
+        <div *ngIf="product.productDiscount !== 0.0" class="ps-badge ps-badge--sale ps-badge--2nd">
+          <span>{{product.productDiscount * 100}}%</span>
+        </div>
+        <a class="ps-shoe__favorite" (click)="addItemToWishlist()">
+          <i class="ps-icon-heart"></i>
+        </a>
+        <a href="/shop/{{product.id}}">
+          <img width="350px" height="350px" src="{{product.pictureUrl}}" alt="">
+        </a>
+        <a class="ps-shoe__overlay" href=""></a>
+      </div>
+      <div class="ps-shoe__content">
+        <div class="ps-shoe__variants">
+          <div class="ps-shoe__variant normal">
+            <owl-carousel-o [options]="ProductItemHomeSlider">
+                   <ng-template *ngIf="product.pictureUrl1 !== null" carouselSlide><img width="50px" height="50px" [src]="product.pictureUrl1" routerLink="/shop/{{product.id}}" alt=""></ng-template> 
+                   <ng-template *ngIf="product.pictureUrl2 !== null" carouselSlide><img width="50px" height="50px" [src]="product.pictureUrl2" routerLink="/shop/{{product.id}}" alt=""></ng-template>
+                   <ng-template *ngIf="product.pictureUrl3 !== null" carouselSlide><img width="50px" height="50px" [src]="product.pictureUrl3" routerLink="/shop/{{product.id}}" alt=""></ng-template>
+                   <ng-template *ngIf="product.pictureUrl4 !== null" carouselSlide><img width="50px" height="50px" [src]="product.pictureUrl4" routerLink="/shop/{{product.id}}" alt=""></ng-template>
+             </owl-carousel-o> 
+           </div>
+           <div class="ps-rating">
+            <rating [(ngModel)]="value" [max]="5" [readonly]="true" [titles]="['Very Bad','Poor', 'Ok', 'Good', 'Excellent']"></rating>
+          </div>
+        </div>
+        <div class="ps-shoe__detail"><a class="ps-shoe__name" routerLink="/shop/{{product.id}}">{{product.name}}</a>
+          <div *ngIf="product.productDiscount !== 0.0">
+          <p class="ps-shoe__categories">
+            <a>{{product.productType}}</a>,<a>{{product.productCategory}}</a><a *ngIf="product.productBrand !== 'none'">{{product.productBrand}}</a></p><span class="ps-shoe__price">
+            <del>{{product.price | currency}}</del>{{((1-product.productDiscount) * product.price) | currency}}</span>
+          </div>
+          <div *ngIf="product.productDiscount == 0.0">
+            <p class="ps-shoe__categories"><a>{{product.productType}}</a>,<a>{{product.productCategory}}</a>,<a *ngIf="product.productBrand !== 'none'"> {{product.productBrand}}</a></p><span class="ps-shoe__price">
+              {{(product.price) | currency}}</span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

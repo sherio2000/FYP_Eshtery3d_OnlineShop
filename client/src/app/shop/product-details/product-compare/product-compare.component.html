@@ -1,0 +1,55 @@
+<div class="">
+    <owl-carousel-o>
+        <ng-container>
+            <ng-template carouselSlide><img style="max-width: 600px; max-height: 280px;" class="card" class="zoom" [src]="this.compareProduct.pictureUrl"></ng-template>
+            <ng-template carouselSlide *ngIf="compareProduct.pictureUrl1 !== null"><img style="max-width: 600px; max-height: 280px;" class="zoom" [src]="this.compareProduct.pictureUrl1"></ng-template>
+            <ng-template carouselSlide *ngIf="compareProduct.pictureUrl2 !== null"><img style="max-width: 600px; max-height: 280px;" class="zoom" [src]="this.compareProduct.pictureUrl2"></ng-template>
+            <ng-template carouselSlide *ngIf="compareProduct.pictureUrl3 !== null"><img style="max-width: 600px; max-height: 280px;" class="zoom" [src]="this.compareProduct.pictureUrl3"></ng-template>
+            <ng-template carouselSlide *ngIf="compareProduct.pictureUrl4 !== null"><img style="max-width: 600px; max-height: 280px;" class="zoom" [src]="this.compareProduct.pictureUrl4"></ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>
+<hr>
+<div class="mt-2 container card">
+    <div class="row card-header" style="background-color: #f7f7f7;"> 
+        <h3><strong>Product Details</strong></h3>
+    </div>
+    <div class="row card-body">
+        <div class="card">
+            <h4 class="card-header"><strong>Product Description: </strong></h4>
+            <h5 class="ml-2 card-body">{{this.compareProduct.description}}</h5>
+        </div>
+        <div class="card">
+            <h4 class="card-header"><strong>Product Specifications: </strong></h4>
+            <h5 class="ml-2 card-body">{{this.compareProduct.specifications}}</h5>
+        </div>
+        <div class="card">
+            <h4 class="card-header"><strong>Product Price: </strong></h4>
+            <h5 class="ml-2 card-body">{{this.compareProduct.price | currency}}</h5>
+        </div>
+        <div *ngIf="this.compareProduct.productDiscount" class="card">
+            <h4 class="card-header"><strong>Product Discount: </strong></h4>
+            <h5 class="ml-2 card-body">{{this.compareProduct.productDiscount * 100}}%</h5>
+        </div>
+        <div *ngIf="this.compareProduct.productDiscount" class="card">
+            <h4 class="card-header"><strong>Product Price After Discount: </strong></h4>
+            <h5 class="ml-2 card-body">{{(this.compareProduct.productDiscount * this.compareProduct.price) | currency}}</h5>
+        </div>
+        <div class="card">
+            <h4 class="card-header"><strong>Product Color: </strong></h4>
+            <h5 class="ml-2 card-body">{{this.compareProduct.productColor}}</h5>
+        </div>
+        <div class="card">
+            <h4 class="card-header"><strong>Product Type: </strong></h4>
+            <h5 class="ml-2 card-body">{{this.compareProduct.productType}}</h5>
+        </div>
+        <div *ngIf="this.compareProduct.productBrand" class="card">
+            <h4 class="card-header"><strong>Product Brand: </strong></h4>
+            <h5 class="ml-2 card-body">{{this.compareProduct.productBrand}}</h5>
+        </div>
+        <div *ngIf="this.compareProduct.productCategory" class="card">
+            <h4 class="card-header"><strong>Product Category: </strong></h4>
+            <h5 class="ml-2 card-body">{{this.compareProduct.productCategory}}</h5>
+        </div>
+    </div>
+</div>

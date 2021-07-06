@@ -1,0 +1,74 @@
+[    
+    {
+      "Id": 1,
+      "Name": "Laptops"
+    },
+    {
+      "Id": 2,
+      "Name": "Mobile/Tablets"
+    },
+    {
+      "Id": 3,
+      "Name": "T-shirt"
+    },
+    {
+      "Id": 4,
+      "Name": "Shirts"
+    },
+    {
+      "Id": 5,
+      "Name": "Pants"
+    },
+    {
+      "Id": 6,
+      "Name": "Sweaters"
+    },
+    {
+      "Id": 7,
+      "Name": "Jackets"
+    },
+    {
+      "Id": 8,
+      "Name": "Hoodies"
+    },
+    {
+      "Id": 9,
+      "Name": "Tvs"
+    },
+    {
+      "Id": 10,
+      "Name": "Mobile Accessories"
+    },
+    {
+      "Id": 11,
+      "Name": "Desktop/PC"
+    },
+    {
+      "Id": 12,
+      "Name": "Desktop/PC Accessories"
+    },
+    {
+      "Id": 13,
+      "Name": "Rings"
+    },
+    {
+      "Id": 14,
+      "Name": "Necklace"
+    },
+    {
+      "Id": 15,
+      "Name": "Earings"
+    },
+    {
+      "Id": 16,
+      "Name": "Bracelets"
+    },
+    {
+      "Id": 18,
+      "Name": "Headphones"
+    },
+    {
+      "Id": 19,
+      "Name": "Microphones"
+    }
+  ]
